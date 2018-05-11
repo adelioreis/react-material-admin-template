@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import Paper from 'material-ui/Paper';
 import {white, pink600, pink500} from 'material-ui/styles/colors';
-import {BarChart, Bar, ResponsiveContainer, XAxis} from 'recharts';
+import {BarChart, Bar, ResponsiveContainer, XAxis, Legend, Tooltip} from 'recharts';
 import GlobalStyles from '../../styles';
 
 const MonthlySales = (props) => {
@@ -9,13 +9,13 @@ const MonthlySales = (props) => {
   const styles = {
     paper: {
       backgroundColor: pink600,
-      height: 150
+      height: 250
     },
     div: {
       marginLeft: 'auto',
       marginRight: 'auto',
       width: '95%',
-      height: 85
+      height: 200
     },
     header: {
       color: white,
@@ -32,6 +32,8 @@ const MonthlySales = (props) => {
           <BarChart data={props.data} >
             <Bar dataKey="uv" fill={pink500}/>
             <XAxis dataKey="name" stroke="none" tick={{fill: white}}/>
+            <Legend />
+            <Tooltip/>
           </BarChart>
         </ResponsiveContainer>
       </div>
